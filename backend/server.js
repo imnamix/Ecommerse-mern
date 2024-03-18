@@ -28,10 +28,10 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-// Rest API
-app.get("/", (req, res) => {
-  res.send("<h1>Welcome to ecommerce app</h1>");
-});
+// // Rest API
+// app.get("/", (req, res) => {
+//   res.send("<h1>Welcome to ecommerce app</h1>");
+// });
 
 // Determine the PORT
 
