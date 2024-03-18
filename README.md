@@ -29,7 +29,7 @@ This project is a full-stack eCommerce website built using the MERN (MongoDB, Ex
 
 ## Demo
 
-[Live Demo](demo-url)
+[Live Demo](https://jkecommerse.onrender.com)
 
 ---
 
