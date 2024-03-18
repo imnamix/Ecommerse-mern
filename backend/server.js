@@ -7,37 +7,36 @@ import authRoutes from "./routes/authRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
-import path from "path"
+import path from "path";
 
-//configure env
+// Configure environment variables
 dotenv.config();
 
-//databse config
+// Database configuration
 connectDB();
 
-//rest object
+// Create Express app
 const app = express();
 
-//middelwares
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-//routes
+// Routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-//rest api
+// Rest API
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to ecommerce app</h1>");
 });
 
-//PORT
-const PORT = process.env.PORT || 8080;
+// Determine the PORT
 
-// --------------------------deployment------------------------------
 
+// Deployment setup
 const __dirname1 = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
@@ -51,16 +50,12 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running..");
   });
 }
+const PORT = process.env.PORT || 8080;
 
-// --------------------------deployment------------------------------
-
-
-//run listen
+// Run the server
 app.listen(PORT, () => {
   console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
+    `Server Running on ${process.env.NODE_ENV} mode on port ${PORT}`.bgCyan
       .white
   );
 });
-
-
